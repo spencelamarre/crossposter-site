@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex">
+  <title>Back to Crossposter</title>
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+  <main>
+    <h1>Returning to Crossposter</h1>
+    <p>If nothing happens, make sure Crossposter is running on this computer, then <a id="back" href="http://localhost:3000/">continue</a>.</p>
+  </main>
+  <script>
+    // Platforms refuse http://localhost as a login address, so they send the
+    // browser here and this page hands the response to the app on this
+    // computer. The one-time code is useless without the app's secret, and
+    // the app rejects any response whose state it didn't issue.
+    const target = 'http://localhost:3000/auth/instagram/callback' + location.search;
+    document.getElementById('back').href = target;
+    location.replace(target);
+  </script>
+</body>
+</html>
